@@ -29,3 +29,7 @@ insertion_sort.c
 -
 implementation of insertion sort algo
 
+graphs.py
+-
+added basic undirected graph structure stored in adjacency list. you can add node to graphs, connect them to another nodes and check their status that which another nodes they are connected to
+
