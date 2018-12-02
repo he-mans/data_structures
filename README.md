@@ -25,4 +25,7 @@ quicksort.c
 -
 implementation of quicksort technique
 
-**going to add some more in future**
+insertion_sort.c
+-
+implementation of insertion sort algo
+
