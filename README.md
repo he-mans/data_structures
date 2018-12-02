@@ -1,5 +1,5 @@
 # data_structures
-implementation of some basic data structures in java and c
+implementation of some basic data structures in java ,c and python
 
 clac.java
 -
