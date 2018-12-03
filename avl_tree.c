@@ -122,7 +122,7 @@ node *balance(node *root)
 				//nodes
 				root->right = balance_zig_zac(root->right,1);
 				//balancing lead to new root than previous 
-				//so to reginste this change in acutall root
+				//so to register this change in acutall root
 				//we do this assignment
 				root = balance(root);
 			}
@@ -138,7 +138,7 @@ node *balance(node *root)
 			}
 			else
 			{
-				//child node is right heave thus balancing in regard to it;
+				//child node is right heavy and parent is left thus balancing in regard to it;
 				root->left = balance_zig_zac(root->left,0);
 				root = balance(root);
 			}
