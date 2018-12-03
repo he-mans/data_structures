@@ -163,7 +163,7 @@ node *add(node *root, int data)
 	
 	else if (root->left == NULL && data<root->data)
 	{	
-		//meanse the current node is leaf node
+		//means the current node is leaf node
 		//and the newnode is to be its child node
 		root->left = newnode;
 		//newnode added is always balanced thus we
