@@ -44,7 +44,7 @@ int is_balanced(node *root)
 node *balance_zig_zac(node *root, int flag)
 {
 	//1 if heavy on left
-	//0 if heavy of right
+	//0 if heavy on right
 	
 	//balancing all zig zac heavy pattern which may occure in
 	//future nodes from this point
@@ -52,27 +52,31 @@ node *balance_zig_zac(node *root, int flag)
 	int current_balance = get_balance(root);
 	if (flag==0)
 	{
-		if (root->right->left==NULL)
-		{	
-			temp = root;
-			root = root->right;
-			temp->right = root->left;
-			root->left = temp;
-		}
-		else if(current_balance*get_balance(root->right)<0)
-			root->right = balance_zig_zac(root->right,1);
+		while(root->right->left!=NULL)
+			{
+				if (current_balance*get_balance(root->right)<0)
+					root->right = balance_zig_zac(root->right,1);
+				else
+					break;
+			}
+		temp = root;
+		root = root->right;
+		temp->right = root->left;
+		root->left = temp;
 	}
 	else if (flag==1)
 	{
-		if (root->left->right==NULL)
-			{
-				temp = root;
-				root = root->left;
-				temp->left = root->right;
-				root->right = temp;	
-			}
-		else if(current_balance*get_balance(root->left)<0)
-			root->left = balance_zig_zac(root->left,0);
+		while(root->left->right!=NULL)
+		{
+			if(current_balance*get_balance(root->left)<0)
+				root->left = balance_zig_zac(root->left,0);
+			else
+				break;
+		}
+		temp = root;
+		root = root->left;
+		temp->left = root->right;
+		root->right = temp;		
 	}
 	return root;
 }
