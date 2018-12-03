@@ -9,6 +9,10 @@ phonebook.java
 -
 replica of a phonebook implementing a double hashed hashtable to save contacts
 
+avl_tree.c
+-
+implenetation of avl tree using recursion
+
 queue.java
 -
 implementation of priority queue data structure using 2D array
