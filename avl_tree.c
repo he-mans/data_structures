@@ -50,8 +50,13 @@ node *balance_zig_zac(node *root, int flag)
 	//future nodes from this point
 	node *temp;
 	int current_balance = get_balance(root);
+	//the if condition identifies if current node is left or right heavy and
+	//balances it accordingly
 	if (flag==0)
 	{
+		//if given while condition is true that means that there is no further
+		//zig zac pattern in regards to the current series of node and any
+		//other pattern would have been already rectified or will be in any future encounter
 		while(root->right->left!=NULL)
 			{
 				if (current_balance*get_balance(root->right)<0)
@@ -59,6 +64,8 @@ node *balance_zig_zac(node *root, int flag)
 				else
 					break;
 			}
+		//once the pattern is rectified, the root which started this pattern is 
+		//balanced for its parent node to be balanecd
 		temp = root;
 		root = root->right;
 		temp->right = root->left;
@@ -86,7 +93,7 @@ node *balance(node *root)
 	//performs balancing
 	if(root == NULL || is_balanced(root))
 	{	
-		//checks if root is nul or is alredy balanced or not.
+		//checks if root is null or is alredy balanced or not.
 		//if root is already balanced then no need of any further operation and
 		//thus return
 		return root;
@@ -97,7 +104,7 @@ node *balance(node *root)
 		root->left = balance(root->left);
 		//balances the right tree of the current node
 		root->right = balance(root->right);
-		//temp varable to store the root node while swapping
+		//temp variable to store the root node while swapping
 		node *temp;
 		int current_balance = get_balance(root);
 		//checks in which direction the node is heavy/unbalanced
@@ -157,7 +164,7 @@ node *add(node *root, int data)
 
 	if (root == NULL)
 	{
-		//root==null meanse first node in tree
+		//root==null means first node in tree
 		root = newnode;
 	}
 	
