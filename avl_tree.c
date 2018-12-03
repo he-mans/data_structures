@@ -101,6 +101,7 @@ node *balance(node *root)
 		node *temp;
 		int current_balance = get_balance(root);
 		//checks in which direction the node is heavy/unbalanced
+		//balance >= -2 if right heavy and balance<=2 means left heavy
 		if (current_balance<=-2)
 		{
 			//checks if root node and child node is heavy on the same side.
@@ -115,7 +116,8 @@ node *balance(node *root)
 			}
 			else
 			{
-				//child node is left heavy thus balancing in regard to it
+				//child node is left whereas parent is right heavy thus 
+				//balancing this sort of zig zac pattern in regard to it
 				//and every other pattern like this which may occure in future
 				//nodes
 				root->right = balance_zig_zac(root->right,1);
