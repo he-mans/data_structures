@@ -38,7 +38,11 @@ class pqueue
 			return -1;
 		}
 		int item_index = this.front[i];
-		this.front[i] = (item_index+1)%this.size;
+		if ((item_index+1)%this.size==0)			this.front[i] = -1;
+		else 										this.front[i] = (item_index+1)%this.size;
+		int rear_index = this.rear[i];
+		if (rear_index == 0)			this.rear[i] = -1;
+		else 							this.rear[i] = (rear_index+1)%this.size;
 		int item = this.queue[i][item_index+1];
 		return item;
 	}
@@ -61,21 +65,30 @@ class implement
 {
 	public static void main(String args[])
 	{
-		pqueue q = new pqueue(5);
-		q.add(4,1);
-		q.add(4,1);
-		q.add(4,1);
-		q.add(4,1);
-		q.add(4,1);
-		//q.add(4,1);
-		q.remove();
-		q.remove();
-		q.remove();
-		q.remove();
-		q.remove();
-		q.remove();
-		//q.remove();
+		Scanner sc = new Scanner(System.in);
+		System.out.println("enter size of queue");
+		pqueue q = new pqueue(sc.nextInt());
+		System.out.println("\nenter 1 to add item to queue\n2 to remove\n3 to exit\n");
+		int choice = sc.nextInt();
+		while(choice!=3)
+		{
+			switch(choice)
+			{
+				case 1:{
+					System.out.println("\nenter number and priority (max priority = 5)");
+					q.add(sc.nextInt(),sc.nextInt());
+					break;
+				}
 
-		//System.out.println(q.remove(1));
+				case 2:{
+					int item = q.remove();
+					System.out.println("item removed = "+item+"\n");
+					break;
+				}
+			}
+			System.out.println("\nenter 1 to add item to queue\n2 to remove\n3 to exit\n");
+			choice = sc.nextInt();
+		}
+
 	}
 }
