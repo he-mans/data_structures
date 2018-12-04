@@ -12,9 +12,9 @@ class pqueue
 		this.size = size;
 		for(int i=0; i<max_priorities;i++)
 		{
-			rear[i]=-1;
-			front[i]=-1;
-			queue[i] = new int[size];
+			rear[i]=0;
+			front[i]=0;
+			queue[i] = new int[this.size];
 		}
 	} 
 
@@ -38,25 +38,30 @@ class pqueue
 			return -1;
 		}
 		int item_index = this.front[i];
-		if ((item_index+1)%this.size==0)			this.front[i] = -1;
-		else 										this.front[i] = (item_index+1)%this.size;
-		int rear_index = this.rear[i];
-		if (rear_index == 0)			this.rear[i] = -1;
-		else 							this.rear[i] = (rear_index+1)%this.size;
-		int item = this.queue[i][item_index+1];
+		int item = this.queue[i][item_index];
+		this.front[i] = (item_index+1)%this.size;
 		return item;
 	}
 
 	void add(int value, int priority)
 	{
-		if(this.front[priority] == (this.rear[priority]+1)%this.size|| (this.front[priority]==-1 && this.rear[priority]==this.size-1))
+		if(this.front[priority] == this.rear[priority]+1)
 		{
 			System.out.println("overflow");
 			return;
 		}
+		if(this.rear[priority] == this.size && this.front[priority] == 0)
+		{
+			System.out.println("overflow");
+			return;
+		}
+		else if(this.rear[priority] == this.size && this.front[priority] != 0)
+		{
+			this.rear[priority] = 0 ;
+		}
 		int rear_index = this.rear[priority];
-		this.rear[priority] = (rear_index+1)%this.size;
-		this.queue[priority][rear_index+1] = value;
+		this.queue[priority][rear_index] = value;
+		this.rear[priority] = rear_index+1;
 		return;
 	}	
 }
