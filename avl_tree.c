@@ -213,7 +213,7 @@ int main()
 	int i,data;
 	printf("\n1 to add new node\n2 for inorder traversal\n3 to exit\n");
 	scanf("%d",&i);
-	while(i==1 || i==2)
+	while(i!=3)
 	{
 		switch(i)
 		{
