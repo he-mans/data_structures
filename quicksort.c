@@ -4,7 +4,7 @@
 int *quicksort(int *arr, int size)
 {
 	//dividing array until size of array is >1
-	//if size is samller than 1 we will just return the
+	//if size == 1 we will just return the
 	//array received as it cannot be divided further
 	if (size>1)
 	{
