@@ -23,6 +23,10 @@ class pqueue
 		int i=0;
 		for(i=0;i<this.max_priorities;i++)
 		{
+			if(this.front[i]==this.size && this.rear[i]!=this.size)
+			{
+				this.front[i]=0;	
+			}
 			if(this.rear[i] == this.front[i])
 			{
 				continue;
@@ -39,7 +43,7 @@ class pqueue
 		}
 		int item_index = this.front[i];
 		int item = this.queue[i][item_index];
-		this.front[i] = (item_index+1)%this.size;
+		this.front[i] = item_index+1;
 		return item;
 	}
 
