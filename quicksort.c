@@ -39,7 +39,7 @@ int *quicksort(int *arr, int size)
 		int *smaller_values_sorted_array = quicksort(smaller_values_array,size_smaller_array);
 		int *higher_values_sorted_array = quicksort(higher_values_array,size_higher_array);
 
-		//creating sorted array which will sotre sorted version of our main array
+		//creating an array which will sotre sorted version of our main array
 		int *sorted_array = (int *)malloc(size*sizeof(int));
 		int j;
 	
