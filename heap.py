@@ -2,8 +2,8 @@ from typing import List
 
 class Heap():
     def __init__(self, list: List[int] = []):
-        self.heap = list
-        self.size = len(list)
+        self.heap: List[int] = list
+        self.size: int = len(list)
         self.buildHeap()
 
     def hasLeftChild(self,index: int) -> bool:
