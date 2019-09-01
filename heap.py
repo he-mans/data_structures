@@ -21,13 +21,13 @@ class Heap():
     def hasParent(self,index: int) -> bool:
         return False if self.size-index == self.size else True
     
-    def parent(self, index) -> int:
+    def parent(self, index: int) -> int:
         return (index//2 + index%2) - 1
 
     def elementAt(self,index: int) -> int:
         return self.heap[index];
 
-    def swapElementsAt(self,index1, index2):
+    def swapElementsAt(self,index1: int, index2: int):
         self.heap[index1],self.heap[index2] = self.heap[index2], self.heap[index1]
     
     def heapify(self, index: int):
