@@ -18,7 +18,7 @@ class Heap():
     def rightChild(self, index: int) -> int:
         return index*2 +2
 
-    def hasParent(self,index: int) -> int:
+    def hasParent(self,index: int) -> bool:
         return False if self.size-index == self.size else True
     
     def parent(self, index) -> int:
