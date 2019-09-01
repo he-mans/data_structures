@@ -68,8 +68,8 @@ class Heap():
 
 
 if __name__ == "__main__":
-    heap = list(map(int, input("enter list items to enter into heap: ").split()))
-    heap = Heap(heap)
+    inputList: List[int] = list(map(int, input("enter list items to enter into heap: ").split()))
+    heap = Heap(inputList)
     print(heap.heap)
     heap.addElement(int(input("enter element to add into heap: ")))
     print(heap.heap)
